@@ -5,6 +5,8 @@ hero:
   name: "Felys"
   text: "Language for Elysia"
   tagline: A Functional Programming Language
+  image:
+    src: /assets/elysia.png
   actions:
     - theme: alt
       text: Quick Start

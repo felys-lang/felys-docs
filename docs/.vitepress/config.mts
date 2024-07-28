@@ -5,7 +5,10 @@ export default defineConfig({
     "en/:rest*": ":rest*",
   },
 
+  head: [["link", { rel: "icon", type: "image/icon", href: "/assets/elysia.ico" }]],
+
   themeConfig: {
+    logo: { src: '/assets/elysia.ico', width: 24, height: 24 },
     socialLinks: [
       { icon: "github", link: "https://github.com/felys-lang/felys" },
     ],
@@ -64,6 +67,9 @@ export default defineConfig({
             },
           ],
         },
+        footer: {
+          copyright: "《崩坏3》素材的权利归米哈游所有，其他内容的相关权利、利益均归各自所有者享有"
+        }
       },
     },
   },
