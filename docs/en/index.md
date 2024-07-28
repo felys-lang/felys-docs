@@ -15,7 +15,7 @@ hero:
 
 features:
   - title: Bilingual
-    details: Code in English or Chinese without switching inputs, i.e. compitable with equivalent Chinese symbols.
+    details: Allow coding in pure English or pure Chinese without switching inputs, i.e. compitable with equivalent symbols.
   - title: Simple Syntax
     details: Combined basic syntax of Python and Rust, allowing programmers to pick up Felys in 10 minutes.
   - title: Light Weighted
