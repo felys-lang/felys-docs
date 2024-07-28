@@ -8,10 +8,10 @@ hero:
   actions:
     - theme: alt
       text: 快速入门
-      link: /
+      link: /zh/syntax/beginer
     - theme: alt
       text: API
-      link: /
+      link: /zh/api/overview
 
 features:
   - title: 支持中文
