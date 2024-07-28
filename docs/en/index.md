@@ -9,11 +9,11 @@ hero:
     src: /assets/elysia.png
   actions:
     - theme: alt
-      text: Quick Start
-      link: /
+      text: Quickstart
+      link: /syntax/beginer
     - theme: alt
       text: API
-      link: /
+      link: /api/overview
 
 features:
   - title: Bilingual

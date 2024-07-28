@@ -5,10 +5,12 @@ export default defineConfig({
     "en/:rest*": ":rest*",
   },
 
-  head: [["link", { rel: "icon", type: "image/icon", href: "/assets/elysia.ico" }]],
+  head: [
+    ["link", { rel: "icon", type: "image/icon", href: "/assets/elysia.ico" }],
+  ],
 
   themeConfig: {
-    logo: { src: '/assets/elysia.ico', width: 24, height: 24 },
+    logo: { src: "/assets/elysia.ico", width: 24, height: 24 },
     socialLinks: [
       { icon: "github", link: "https://github.com/felys-lang/felys" },
     ],
@@ -20,6 +22,48 @@ export default defineConfig({
       label: "English",
       lang: "en",
       description: "Language for Elysia",
+      themeConfig: {
+        nav: [
+          {
+            text: "Syntax",
+            link: "/syntax/beginer",
+            activeMatch: "/syntax/",
+          },
+          {
+            text: "API",
+            link: "/api/overview",
+            activeMatch: "/api/",
+          },
+        ],
+        sidebar: {
+          "/syntax": [
+            {
+              text: "Syntax",
+              items: [
+                { text: "Quickstart", link: "/syntax/beginer" },
+                { text: "Bilingual", link: "/syntax/bilingual" },
+                { text: "Function", link: "/syntax/function" },
+              ],
+            },
+          ],
+          "/api/": [
+            {
+              text: "API",
+              items: [
+                { text: "Overview", link: "/api/overview" },
+                { text: "Objects", link: "/api/object" },
+                { text: "Injection", link: "/api/injection" },
+                { text: "Worker", link: "/api/worker" },
+                { text: "Example", link: "/api/example" },
+              ],
+            },
+          ],
+        },
+        footer: {
+          copyright:
+            "Other properties and any right, title, and interest thereof and therein (intellectual property rights included) not derived from Honkai Impact 3rd belong to their respective owners.",
+        },
+      },
     },
 
     zh: {
@@ -51,7 +95,11 @@ export default defineConfig({
           "/zh/syntax": [
             {
               text: "语法",
-              items: [{ text: "快速入门", link: "/zh/syntax/beginer" }],
+              items: [
+                { text: "快速入门", link: "/zh/syntax/beginer" },
+                { text: "双语", link: "/zh/syntax/bilingual" },
+                { text: "函数", link: "/zh/syntax/function" },
+              ],
             },
           ],
           "/zh/api/": [
@@ -68,8 +116,9 @@ export default defineConfig({
           ],
         },
         footer: {
-          copyright: "《崩坏3》素材的权利归米哈游所有，其他内容的相关权利、利益均归各自所有者享有"
-        }
+          copyright:
+            "《崩坏3》素材的权利归米哈游所有，其他内容的相关权利、利益均归各自所有者享有",
+        },
       },
     },
   },

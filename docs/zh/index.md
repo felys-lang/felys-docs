@@ -12,7 +12,7 @@ hero:
       text: 快速入门
       link: /zh/syntax/beginer
     - theme: alt
-      text: API
+      text: 接口
       link: /zh/api/overview
 
 features:
