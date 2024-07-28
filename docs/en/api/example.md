@@ -1,13 +1,13 @@
-# 完整示例
+# Example
 
 ```rust
 use std::collections::HashMap;
 use felys::*;
 
 fn main() {
-    let code = "打印（‘你好，世界’）；".to_string();
+    let code = "print('Hello, World');".to_string();
     let mixin = HashMap::from([
-        ("打印".into(), Object::Rust(print))
+        ("print".into(), Object::Rust(print))
     ]);
 
     let mut main = Worker::new(mixin, 0.0, Language::ZH);

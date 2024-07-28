@@ -1,32 +1,32 @@
-# 构建运行
+# Worker
 
-Felys 是可以进行一些基础的配置的，比如常量注入、使用的语言（中/英）、超时设置等
+Felys allows some basic congifuration, for example constant injection, language, and timeout.
 
-## 构建一个入口
+## Build
 
-这里我们就不注入常量，具体方法可以参考上一页。
+This part focuses on demostrating how to build a new worker, so we do not inject anything. You can refer to the previous page for more details.
 
 ```rust
 let mixin = HashMap::new();
-let mut main = Worker::new(mixin, 0.0, Language::ZH);
+let mut main = Worker::new(mixin, 0.0, Language::EN);
 ```
 
-- 第一个参数`mixin`是常量注入。
-- 第二个参数`0.0`代表了超时设置，设置为零代表不设置超时，注意如果设置超时的话会多开一条线程作为计时器，在启动阶段会慢上百微秒，然后在每条 statement 运行的时候都会检查是否超时，如果超时就会报错，但如果单条 statement 运行了很久，这个超时设置只会在运行到下一条的时候进行检测。
-- 第三个参数`Language::ZH`决定了使用哪个语言的分析器，这里是中文。
+- `mixin` is the constant injection。
+- `0.0` is the timeout. If you set it to zero, it means that no timeout. Be aware that when there is a timeout, Felys will spawn a new thead as a timer. In the case, the initialzation will be a few hundred micro seconds slower than usual. Whenever a statement get executed, it will first check if time is up. If yes, then it will throw an error. However, if a statement takes a long time, only the next statement will check the timeout. The timeout might not to actuate in this case.
+- `Language::EN` decides which language it will expect. English in this case.
 
-## 运行代码
+## Execution
 
 ```rust
-let code = "返回 “——爱莉希雅——”；".to_string();
+let code = "return __elysia__;".to_string();
 let _ = main.exec(code);
 ```
 
-`main.exec(code)`的返回值是一个`Result<Summary, Error>`，这样允许程序员自行定义如何处理输出结果和错误，注意这个`Error`是 Felys 定义的，实现了`Display`的 trait，即可以使用`.to_string()`方法。
+The return value of `main.exec(code)` is `Result<Summary, Error>`. This allows programmers to decide how to handle the correct ouput or the error. The `Error` is from Felys and implemented `Display` trait, i.e. you can call `.to_string()` method on it.
 
-### 正确运行的输出结果
+### The output summary
 
-运行正常便可以获取类型为`Summary`的结果，其结构体如下：
+If everything is right, the unwrapped result is a `Summary` like this:
 
 ```rust
 pub struct Summary {
@@ -36,6 +36,6 @@ pub struct Summary {
 }
 ```
 
-- `time`：第一个项是初始化的时间，第二项是分词器的时间，第三项是代码运行的时间。
-- `stdout`：先前通过`cx.write()`的字符串被换行符拼接后的结果。
-- `exit`：在非函数中调用`return`关键字，那个变量就会被直接返回到此，如果没有出现这种情况，默认是`Object::None`。
+- `time`: initialization time, toknization time, and exeuction time.
+- `stdout`：everything written by `cx.write()` will be joined using `\n` and returned here.
+- `exit`：if you `return` something in the main body of the program, that object will be returned to here. If nothing get returned explicitly, the default value is `Object::None`.

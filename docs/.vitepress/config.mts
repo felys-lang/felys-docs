@@ -51,7 +51,7 @@ export default defineConfig({
               text: "API",
               items: [
                 { text: "Overview", link: "/api/overview" },
-                { text: "Objects", link: "/api/object" },
+                { text: "Object", link: "/api/object" },
                 { text: "Injection", link: "/api/injection" },
                 { text: "Worker", link: "/api/worker" },
                 { text: "Example", link: "/api/example" },

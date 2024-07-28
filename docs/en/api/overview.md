@@ -1,16 +1,16 @@
-# 概览
+# Overview
 
-使用程序接口可以构建属于你自己的 Felys 版本，可以通过 Rust 的生态将其制作成命令行工具或者在线运行网站，并且允许你注入定制的变量和函数，这一部分需要一定的 Rust 基础，这里不会做任何入门的教程。
+By using the API, you can build your own distribution of Felys. It can be turned into a CLI or an online code execution website through Rust ecosystem. It allows you to inject customized constants and functions. This requires a certain level of Rust proficiency, and no introductory tutorials will be provided here.
 
-## 项目配置
+## Setup
 
-在项目目录下，终端运行：
+In the project directory, run this in the terminal:
 
 ```console
 cargo add felys
 ```
 
-导入以下内容，注意不要覆盖或被覆盖。
+import the followings, make sure it does not conflict with others.
 
 ```rust
 use std::collections::HashMap;

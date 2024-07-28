@@ -1,49 +1,49 @@
-# 变量函数
+# Object
 
-Felys 的变量是动态类型的，并且不论字符串、数字、函数都是变量的一种，均作为`Object`的一部分，这大大简化了 Felys 的编写难度，也减轻了用户学习难度，在语言成长到一定程度之前都是利大于弊的。
+Felys is dynamic typing which includes string, number, function. This makes Felys easy to code, and more beginner friendly. I believe before a language matures to a certain extent, its advantages generally outweigh its disadvantages.
 
-## 基础变量
+## Basic
 
-Felys 支持变量类型以及构建方法如下：
+Felys variables can be declared like this:
 
 ```rust
-Object::String("爱莉希雅".to_string());
+Object::String("elysia".to_string());
 Object::Number(11.11);
 Object::Boolean(true);
 Object::None;
 ```
 
 ::: tip
-`Object::None`是无返回值函数的默认返回值。
+`Object::None` is the default return value of a function when there is no explicit one.
 :::
 
-## 原生函数
+## Function
 
-这个函数是在运行时定义的函数，由于已经有已经支持了 Rust 函数的注入，手动构建一个 Felys 函数的抽象语法树是没有意义的，所以不提供相关接口。
+This function is declared during runtime. Since Felys suppoerts Rust function injection, builing a Felys function abstract syntax tree is meaningless. Thus, no interface is provided.
 
-## Rust 函数
+## Rust Function
 
-此类函数由于需要被注入到 Felys 中，必须遵循以下签名：
+This type of function will be injected into Felys, so it must follow this signiture:
 
 ```rust
 fn function(cx: &mut Context) -> Output {
-    // 做一些事情
+    // do something
 }
 ```
 
-### 输入 `cx: &mut Context`
+### Input `cx: &mut Context`
 
-- `cx.args`：类型为`Vec<Object>`也就是所有传入的参数，在函数中可以去校验参数数量以及类型的正确性。所有类型的`Object`都会提供`.f64()`和`.bool()`两个方法，前者会返回`Result<f64, RuntimeError>`，而后者则会返回一个`bool`。
-- `cx.write()`：传入值为`String`，可以理解为 Rust 中`write!()`，会写入输出的缓冲区，在运行结束后可以一次性将其取出。这个接口意在替代`println!()`不能正常工作的情况下，比如在线运行代码等场景。
+- `cx.args`: It contain `Vec<Object>`, which is a vector of all inputs. You can verfiy the numbers of arguments and their typing inside the function. All `Object` have two methods: `.f64()` and `.bool()`. The former returns a `Result<f64, RuntimeError>`, and latter returns a `bool`.
+- `cx.write()`: It requires an arugment with type `String`. It works similar to the Rust `write!()`, which write things into the output buffer. You can access to it after the execution is done. Having this interface to replace `println!()` when it does not work properly. For example: online code execution.
 
-### 输出 `Output`
+### Output `Output`
 
-- `Output::error()`：传入值为`String`即报错提示，将其返回将会带给后端一个错误，后端会立刻回传这个错误，然后停止运行。
-- `Output::from()`：传入一个`Object`可以用于返回给后端，但通常不会这么写，更推荐的写法是直接使用`Into`这个 trait，比如`Object::None.into()`会直接把`Object`转换成函数签名中的`Output`。
+- `Output::error()`: It takes a `String` as error message. This this will send an error to the backend, and the backend will spread it to stop the execution.
+- `Output::from()`：It turns `Object` to an acceptable return value. However, we usually do not do this. A more commanded way to use `Into` trait directly. For example: `Object::None.into()` will turns `Object` into the `Output` in the function signiture。
 
-### 示例
+### Example
 
-以下函数会将所有输入的参数用空格拼接，然后都放进输出缓冲中，功能类似于 Python 中的同名函数，最后返回一个`Object::None`：
+The following function will join are the object with a space, and send them to the output buffer. It is similar the built-in function `print` in Python. It returns a `Object::None`:
 
 ```rust
 pub fn print(cx: &mut Context) -> Output {
