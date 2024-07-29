@@ -10,7 +10,7 @@ fn main() {
         ("print".into(), Object::Rust(print))
     ]);
 
-    let mut main = Worker::new(mixin, 0.0, Language::ZH);
+    let mut main = Worker::new(mixin, 0.0, Language::EN);
     if let Err(e) = main.exec(code) {
         println!("{}", e)
     }

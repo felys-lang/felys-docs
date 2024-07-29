@@ -23,6 +23,12 @@ Object::None;
 
 ## Rust 函数
 
+构建一个 Felys 的 Rust 函数类型:
+
+```rust
+Object::Rust(function);
+```
+
 此类函数由于需要被注入到 Felys 中，必须遵循以下签名：
 
 ```rust

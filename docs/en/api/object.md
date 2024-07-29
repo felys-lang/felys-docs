@@ -4,7 +4,7 @@ Felys is dynamic typing which includes string, number, function. This makes Fely
 
 ## Basic
 
-Felys variables can be declared like this:
+Felys variables can be structed like this:
 
 ```rust
 Object::String("elysia".to_string());
@@ -22,6 +22,12 @@ Object::None;
 This function is declared during runtime. Since Felys supports Rust function injection, builing a Felys function abstract syntax tree is meaningless. Thus, no interface is provided.
 
 ## Rust Function
+
+Struct a Felys Rust function type:
+
+```rust
+Object::Rust(function);
+```
 
 This type of function will be injected into Felys, so it must follow this signiture:
 
