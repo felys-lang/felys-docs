@@ -24,6 +24,10 @@ let _ = main.exec(code);
 
 The return value of `main.exec(code)` is `Result<Summary, Error>`. This allows programmers to decide how to handle the correct ouput or the error. The `Error` is from Felys and implemented `Display` trait, i.e. you can call `.to_string()` method on it.
 
+::: tip
+`Worker` allows multiple execution, and they share the built-in objects and the global scope.
+:::
+
 ### The output summary
 
 If everything is right, the unwrapped result is a `Summary` like this:

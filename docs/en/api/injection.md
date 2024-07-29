@@ -1,10 +1,10 @@
 # Injection
 
-The reason why injection exists is that the injected objects are globally immutable. The only currecty scope to override it. When calling a function, even if it has its own environment, it still has the access to the injected objects. It is a bit similar to `define` in Racket. However, since Felys intoduced variables, it is not allowed during runtime. Instead, do it in Rust level.
+The reason why injection exists is that the injected objects are globally immutable. Only currently scope to override it temporarily. When calling a function, even if it has its own environment, it still has the access to the injected objects. It is a bit similar to `define` in Racket. However, since Felys intoduced variables, it is not allowed during runtime. Instead, do it in Rust level.
 
 ## Initialization
 
-We use Rust built-in type `HashMap<String, Object>` to store all the injected objects. The `String` is the identifier and `Object` is the corresponded Felys type. It is recommaned to use `HashMap::from()` to generate this hash map.
+We use Rust built-in type `HashMap<String, Object>` to store all the objects. The `String` is the identifier and `Object` is the Felys object. It is recommaned to use `HashMap::from()` to generate this hash map.
 
 ```rust
 let mixin = HashMap::from([

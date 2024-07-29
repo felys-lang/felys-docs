@@ -24,6 +24,10 @@ let _ = main.exec(code);
 
 `main.exec(code)`的返回值是一个`Result<Summary, Error>`，这样允许程序员自行定义如何处理输出结果和错误，注意这个`Error`是 Felys 定义的，实现了`Display`的 trait，即可以使用`.to_string()`方法。
 
+::: tip
+`Worker`允许多次运行，并且每次运行都会共享内置常量和全局变量。
+:::
+
 ### 正确运行的输出结果
 
 运行正常便可以获取类型为`Summary`的结果，其结构体如下：

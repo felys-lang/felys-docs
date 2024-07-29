@@ -10,7 +10,7 @@ In the project directory, run this in the terminal:
 cargo add felys
 ```
 
-import the followings, make sure it does not conflict with others.
+Import the followings, make sure it does not conflict with others.
 
 ```rust
 use std::collections::HashMap;
