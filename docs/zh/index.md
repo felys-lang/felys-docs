@@ -10,7 +10,7 @@ hero:
   actions:
     - theme: alt
       text: 快速入门
-      link: /zh/syntax/beginer
+      link: /zh/guide/beginer
     - theme: alt
       text: 接口
       link: /zh/api/overview

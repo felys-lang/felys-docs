@@ -25,9 +25,9 @@ export default defineConfig({
       themeConfig: {
         nav: [
           {
-            text: "Syntax",
-            link: "/syntax/beginer",
-            activeMatch: "/syntax/",
+            text: "Guide",
+            link: "/guide/beginer",
+            activeMatch: "/guide/",
           },
           {
             text: "API",
@@ -36,13 +36,13 @@ export default defineConfig({
           },
         ],
         sidebar: {
-          "/syntax": [
+          "/guide": [
             {
-              text: "Syntax",
+              text: "guide",
               items: [
-                { text: "Quickstart", link: "/syntax/beginer" },
-                { text: "Bilingual", link: "/syntax/bilingual" },
-                { text: "Function", link: "/syntax/function" },
+                { text: "Quickstart", link: "/guide/beginer" },
+                { text: "Bilingual", link: "/guide/bilingual" },
+                { text: "Function", link: "/guide/function" },
               ],
             },
           ],
@@ -81,9 +81,9 @@ export default defineConfig({
         },
         nav: [
           {
-            text: "语法",
-            link: "/zh/syntax/beginer",
-            activeMatch: "/zh/syntax/",
+            text: "指南",
+            link: "/zh/guide/beginer",
+            activeMatch: "/zh/guide/",
           },
           {
             text: "接口",
@@ -92,13 +92,13 @@ export default defineConfig({
           },
         ],
         sidebar: {
-          "/zh/syntax": [
+          "/zh/guide": [
             {
               text: "语法",
               items: [
-                { text: "快速入门", link: "/zh/syntax/beginer" },
-                { text: "双语", link: "/zh/syntax/bilingual" },
-                { text: "函数", link: "/zh/syntax/function" },
+                { text: "快速入门", link: "/zh/guide/beginer" },
+                { text: "双语", link: "/zh/guide/bilingual" },
+                { text: "函数", link: "/zh/guide/function" },
               ],
             },
           ],
