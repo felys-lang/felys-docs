@@ -6,7 +6,7 @@ By using the API, you can build your own distribution of Felys. It can be turned
 
 In the project directory, run this in the terminal:
 
-```console
+```shell
 cargo add felys
 ```
 

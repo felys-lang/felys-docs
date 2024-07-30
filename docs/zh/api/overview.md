@@ -6,7 +6,7 @@
 
 在项目目录下，终端运行：
 
-```console
+```shell
 cargo add felys
 ```
 

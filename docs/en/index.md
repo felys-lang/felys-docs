@@ -10,7 +10,7 @@ hero:
   actions:
     - theme: alt
       text: Quickstart
-      link: /guide/beginer
+      link: /guide/install
     - theme: alt
       text: API
       link: /api/overview

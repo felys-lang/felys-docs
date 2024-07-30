@@ -26,7 +26,7 @@ export default defineConfig({
         nav: [
           {
             text: "Guide",
-            link: "/guide/beginer",
+            link: "/guide/install",
             activeMatch: "/guide/",
           },
           {
@@ -40,7 +40,7 @@ export default defineConfig({
             {
               text: "guide",
               items: [
-                { text: "Quickstart", link: "/guide/beginer" },
+                { text: "Quickstart", link: "/guide/install" },
                 { text: "Bilingual", link: "/guide/bilingual" },
                 { text: "Function", link: "/guide/function" },
               ],
@@ -82,7 +82,7 @@ export default defineConfig({
         nav: [
           {
             text: "指南",
-            link: "/zh/guide/beginer",
+            link: "/zh/guide/install",
             activeMatch: "/zh/guide/",
           },
           {
@@ -96,9 +96,11 @@ export default defineConfig({
             {
               text: "语法",
               items: [
-                { text: "快速入门", link: "/zh/guide/beginer" },
-                { text: "双语", link: "/zh/guide/bilingual" },
-                { text: "函数", link: "/zh/guide/function" },
+                { text: "安装", link: "/zh/guide/install" },
+                { text: "快速入门", link: "/zh/guide/quickstart" },
+                { text: "双语对照", link: "/zh/guide/bilingual" },
+                { text: "函数特性", link: "/zh/guide/function" },
+                { text: "命令行", link: "/zh/guide/cli" },
               ],
             },
           ],
