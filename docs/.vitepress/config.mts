@@ -38,7 +38,7 @@ export default defineConfig({
         sidebar: {
           "/guide": [
             {
-              text: "guide",
+              text: "Guide",
               items: [
                 { text: "Quickstart", link: "/guide/install" },
                 { text: "Bilingual", link: "/guide/bilingual" },
@@ -100,7 +100,6 @@ export default defineConfig({
                 { text: "快速入门", link: "/zh/guide/quickstart" },
                 { text: "双语对照", link: "/zh/guide/bilingual" },
                 { text: "函数特性", link: "/zh/guide/function" },
-                { text: "命令行", link: "/zh/guide/cli" },
               ],
             },
           ],
