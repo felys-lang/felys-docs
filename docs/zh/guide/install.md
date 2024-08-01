@@ -20,7 +20,7 @@ Felys 提供多种安装方式，也可以用支持在线运行代码的网站�
 
 ### 方法二：自行编译
 
-需要有 Rust 编译环境，以及 Cargo 包管理器，其安装方式可以参考官方的[文档](https://doc.rust-lang.org/book/ch01-01-installation.html)，个人推荐用包管理器安装`rustup`然后用后者安装相关工具链。
+需要有 Rust 编译环境，以及 Cargo 包管理器，其安装方式可以参考官方的[文档](https://doc.rust-lang.org/book/ch01-01-installation.html)，个人推荐用包管理器如`brew`来安装`rustup`然后用后者安装 Rust 相关工具链。
 
 拉取源代码，或者也可以直接下载[压缩包](https://github.com/felys-lang/felys-cli/archive/refs/heads/main.zip)。
 

@@ -12,8 +12,8 @@ let mut main = Worker::new(mixin, 0.0, Language::EN);
 ```
 
 - `mixin` is the constant injection。
-- `0.0` is the timeout. If you set it to zero, it means that no timeout. Be aware that when there is a timeout, Felys will spawn a new thead as a timer. In the case, the initialzation will be a few hundred micro seconds slower than usual. Whenever a statement get executed, it will first check if time is up. If yes, then it will throw an error. However, if a statement takes a long time, only the next statement will check the timeout. The timeout might not to actuate in this case.
-- `Language::EN` decides which language it will expect. English in this case.
+- `0.0` is the timeout. If you set it to zero, it means that no timeout. Be aware that when there is a timeout, Felys will spawn a new thead as a timer. In this case, the initialization will be a few hundred micro seconds slower than usual. Whenever a statement get executed, it will first check if time is up. If yes, then it will throw an error. However, if a statement takes a long time to run, only the next statement will check the timeout. The timeout might not to actuate in this case.
+- `Language::EN` decides which language it will expect. English here.
 
 ## Execution
 

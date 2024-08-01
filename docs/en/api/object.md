@@ -2,7 +2,7 @@
 
 Felys is dynamic typing which includes string, number, function. This makes Felys easy to code, and more beginner friendly. I believe before a language matures to a certain extent, its advantages generally outweigh its disadvantages.
 
-## Basic
+## Basics
 
 Felys variables can be structed like this:
 
