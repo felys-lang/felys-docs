@@ -18,7 +18,7 @@ export default defineConfig({
 
   locales: {
     root: {
-      title: "Felys",
+      title: "Felys Docs",
       label: "English",
       lang: "en",
       description: "Language for Elysia",
@@ -67,7 +67,7 @@ export default defineConfig({
     },
 
     zh: {
-      title: "FELYS",
+      title: "FELYS文档",
       label: "中文",
       lang: "zh",
       description: "至爱莉希雅的语言",
