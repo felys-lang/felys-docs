@@ -12,8 +12,8 @@ fn main() {
         ("打印".into(), Object::Rust(print))
     ]);
 
-    // 创建解释器入口：注入，无超时，中文环境
-    let mut main = Worker::new(mixin, 0.0, Language::ZH);
+    // 创建解释器入口：注入，无超时，至多100层递归，中文环境
+    let mut main = Worker::new(mixin, 0.0, 100, Language::ZH);
 
     // 运行，如果有报错就打印
     if let Err(e) = main.exec(code) {

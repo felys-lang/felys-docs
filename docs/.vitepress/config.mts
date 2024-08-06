@@ -108,7 +108,7 @@ export default defineConfig({
               text: "接口",
               items: [
                 { text: "概览", link: "/zh/api/overview" },
-                { text: "变量函数", link: "/zh/api/object" },
+                { text: "数据类型", link: "/zh/api/object" },
                 { text: "常量注入", link: "/zh/api/injection" },
                 { text: "构建运行", link: "/zh/api/worker" },
                 { text: "完整示例", link: "/zh/api/example" },
