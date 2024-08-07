@@ -4,7 +4,7 @@ Felys 提供多种安装方式，也可以用支持在线运行代码的网站�
 
 ## 在线运行
 
-在一个由 React 和 Axum 构建的网站直接运行：[exec.felys.dev](https://exec.felys.dev)
+在一个由 Next 和 Axum 构建的网站直接运行：[exec.felys.dev](https://exec.felys.dev)
 
 ::: tip
 为保护服务器，每次在线运行时长被控制在 50 毫秒内，且有限流。
