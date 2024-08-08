@@ -1,16 +1,16 @@
 # Overview
 
-By using the API, you can build your own distribution of Felys. It can be turned into a CLI or an online code execution website through Rust ecosystem. It allows you to inject customized constants and functions. This requires a certain level of Rust proficiency, and no introductory tutorials will be provided here.
+By using the Felys API, you can build your own distribution of Felys. This distribution can be transformed into a CLI tool or an online code execution platform using the Rust ecosystem. The API allows you to inject customized constants and functions. However, this requires a certain level of Rust proficiency, and no introductory tutorials are provided here.
 
 ## Setup
 
-In the project directory, run this in the terminal:
+In your project directory, run the following command in the terminal:
 
 ```shell
 cargo add felys
 ```
 
-Import the followings, make sure it does not conflict with others.
+Import the following modules, make sure they do not conflict with other imports:
 
 ```rust
 use std::collections::HashMap;

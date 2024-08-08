@@ -21,7 +21,7 @@ fn main() {
     }
 }
 
-// 在 Felys 中打印所收到的所有变量
+// 打印所收到的所有变量
 fn print(cx: &mut Context) -> Output {
     let out = cx.args.iter()
         .map(|o| o.to_string())

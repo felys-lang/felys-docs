@@ -1,19 +1,20 @@
 # Worker
 
-Felys allows some basic congifuration, for example constant injection, language, and timeout.
+Felys allows some basic configuration options, such as constant injection, language selection, and timeout settings.
 
 ## Build
 
-This part focuses on demostrating how to build a new worker, so we do not inject anything. You can refer to the previous page for more details.
+This section focuses on demonstrating how to build a new worker without injecting anything. For more details, refer to the previous page.
 
 ```rust
 let mixin = HashMap::new();
-let mut main = Worker::new(mixin, 0.0, Language::EN);
+let mut main = Worker::new(mixin, 0.0, 100, Language::EN);
 ```
 
-- `mixin` is the constant injection。
-- `0.0` is the timeout. If you set it to zero, it means that no timeout. Be aware that when there is a timeout, Felys will spawn a new thead as a timer. In this case, the initialization will be a few hundred micro seconds slower than usual. Whenever a statement get executed, it will first check if time is up. If yes, then it will throw an error. However, if a statement takes a long time to run, only the next statement will check the timeout. The timeout might not to actuate in this case.
-- `Language::EN` decides which language it will expect. English here.
+- `mixin` represents the constant injection.
+- `0.0` is the timeout setting. If you set it to zero, it means there is no timeout. Be aware that when a timeout is set, Felys will spawn a new thread to act as a timer. In this case, the initialization will be a few hundred microseconds slower than usual. Whenever a statement is executed, it first checks if the time is up. If the time is up, it will throw an error. However, if a statement takes a long time to run, only the next statement will check the timeout, which means the timeout may not take effect immediately.
+- `100` is the maximum number of recursive calls allowed. Exceeding this limit will result in an error. Each function call increments a counter by one, and the counter is decremented by one after the call is finished.
+- `Language::EN` specifies the expected language, which is English in this case.
 
 ## Execution
 
@@ -22,7 +23,7 @@ let code = "return __elysia__;".to_string();
 let _ = main.exec(code);
 ```
 
-The return value of `main.exec(code)` is `Result<Summary, Error>`. This allows programmers to decide how to handle the correct ouput or the error. The `Error` is from Felys and implemented `Display` trait, i.e. you can call `.to_string()` method on it.
+The return value of `main.exec(code)` is `Result<Summary, Error>`. This allows programmers to decide how to handle the correct output or error. The `Error` type is from Felys and implements the `Display` trait, meaning you can call the `.to_string()` method on it.
 
 ::: tip
 `Worker` allows multiple execution, and they share the built-in objects and the global scope.
@@ -30,7 +31,7 @@ The return value of `main.exec(code)` is `Result<Summary, Error>`. This allows p
 
 ### The output summary
 
-If everything is right, the unwrapped result is a `Summary` like this:
+If everything is right, the unwrapped result is a `Summary` structured like this:
 
 ```rust
 pub struct Summary {
@@ -40,6 +41,6 @@ pub struct Summary {
 }
 ```
 
-- `time`: initialization time, toknization time, and exeuction time.
-- `stdout`：everything written by `cx.write()` will be joined using `\n` and returned here.
-- `exit`：if you `return` something in the main body of the program, that object will be returned to here. If nothing get returned explicitly, the default value is `Object::None`.
+- `time`: Initialization time, toknization time, and exeuction time.
+- `stdout`: Everything written by `cx.write()` will be joined using `\n` and returned here.
+- `exit`: If you `return` something in the main body of the program, that object will be returned here. If nothing is returned explicitly, the default value is `Object::None`.

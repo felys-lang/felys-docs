@@ -12,8 +12,8 @@ fn main() {
         ("print".into(), Object::Rust(print))
     ]);
 
-    // init a worker: injection, no timeout, English environment
-    let mut main = Worker::new(mixin, 0.0, Language::EN);
+    // init a worker: injection, no timeout, max 100 func call, English mode
+    let mut main = Worker::new(mixin, 0.0, 100, Language::EN);
 
     // execute and print out error if there is
     if let Err(e) = main.exec(code) {
@@ -21,7 +21,7 @@ fn main() {
     }
 }
 
-// print out all parameters in Felys
+// print out all parameters
 fn print(cx: &mut Context) -> Output {
     let out = cx.args.iter()
         .map(|o| o.to_string())
