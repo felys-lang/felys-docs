@@ -5,7 +5,10 @@ export default defineConfig({
     "en/:rest*": ":rest*",
   },
 
-  head: [["link", { rel: "icon", type: "image/icon", href: "/elysia.ico" }]],
+  head: [
+    ["link", { rel: "icon", type: "image/icon", href: "/elysia.ico" }],
+    ["link", { rel: "apple-touch-icon", href: "/elysia.png" }],
+  ],
 
   themeConfig: {
     logo: { src: "/elysia.ico", width: 24, height: 24 },
