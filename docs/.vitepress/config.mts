@@ -5,12 +5,10 @@ export default defineConfig({
     "en/:rest*": ":rest*",
   },
 
-  head: [
-    ["link", { rel: "icon", type: "image/icon", href: "/assets/elysia.ico" }],
-  ],
+  head: [["link", { rel: "icon", type: "image/icon", href: "/elysia.ico" }]],
 
   themeConfig: {
-    logo: { src: "/assets/elysia.ico", width: 24, height: 24 },
+    logo: { src: "/elysia.ico", width: 24, height: 24 },
     socialLinks: [
       { icon: "github", link: "https://github.com/felys-lang/felys" },
     ],
@@ -62,8 +60,7 @@ export default defineConfig({
           ],
         },
         footer: {
-          copyright:
-            "© All rights reserved by FelysNeko",
+          copyright: "© All rights reserved by FelysNeko",
         },
       },
     },
@@ -119,8 +116,8 @@ export default defineConfig({
           ],
         },
         footer: {
-          copyright: "© 银河猫猫侠版权所有"
-        }
+          copyright: "© 银河猫猫侠版权所有",
+        },
       },
     },
   },
