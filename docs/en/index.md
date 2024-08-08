@@ -8,26 +8,31 @@ hero:
   image:
     src: /assets/elysia.png
   actions:
-    - theme: alt
+    - theme: brand
       text: Quickstart
       link: /guide/install
     - theme: alt
       text: API
       link: /api/overview
+    - theme: alt
+      text: Playground
+      link: https://exec.felys.dev
 
 features:
-  - title: Bilingual
+  - icon:
+      src: /assets/translate.svg
+    title: Bilingual
     details: Allow coding in pure English or pure Chinese without switching inputs, i.e. compitable with equivalent symbols.
-  - title: Simple Syntax
+  - icon:
+      src: /assets/braces.svg
+    title: Simple Syntax
     details: Combined basic syntax of Python and Rust, allowing programmers to pick up Felys in 10 minutes.
-  - title: Light Weighted
+  - icon:
+      src: /assets/rocket.svg
+    title: Light Weighted
     details: Built with Rust with the simpliest design, so it is fast even if Felys uses dynamic typing.
-  - title: Extendable
+  - icon:
+      src: /assets/expand.svg
+    title: Extendable
     details: Inject Rust functions into Felys, and build specialized distribution with Rust ecosystem.
 ---
-
-<style>
-:root {
-  --vp-home-hero-name-color: #ffc6f4;
-}
-</style>

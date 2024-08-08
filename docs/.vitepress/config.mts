@@ -15,6 +15,7 @@ export default defineConfig({
       { icon: "github", link: "https://github.com/felys-lang/felys" },
     ],
   },
+  appearance: "force-dark",
 
   locales: {
     root: {
@@ -40,7 +41,8 @@ export default defineConfig({
             {
               text: "Guide",
               items: [
-                { text: "Quickstart", link: "/guide/install" },
+                { text: "Install", link: "/guide/install" },
+                { text: "Quickstart", link: "/guide/quickstart" },
                 { text: "Bilingual", link: "/guide/bilingual" },
                 { text: "Function", link: "/guide/function" },
               ],
@@ -61,7 +63,7 @@ export default defineConfig({
         },
         footer: {
           copyright:
-            "Other properties and any right, title, and interest thereof and therein (intellectual property rights included) not derived from Honkai Impact 3rd belong to their respective owners.",
+            "© All rights reserved by FelysNeko",
         },
       },
     },
@@ -117,9 +119,8 @@ export default defineConfig({
           ],
         },
         footer: {
-          copyright:
-            "《崩坏3》素材的权利归米哈游所有，其他内容的相关权利、利益均归各自所有者享有。",
-        },
+          copyright: "© 银河猫猫侠版权所有"
+        }
       },
     },
   },
