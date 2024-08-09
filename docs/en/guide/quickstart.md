@@ -72,7 +72,7 @@ ilove(episode);
 ```
 
 ::: tip
-Function closure is not supported, so a function only have access parameters, constants, and it self. (syntactic sugar)
+Function closure is not supported, meaning that a function only have the access to parameters, constants, and itself. (syntactic sugar)
 :::
 
 ### Cool Tricks

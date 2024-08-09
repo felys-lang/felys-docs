@@ -12,11 +12,11 @@ To protect the server, each execution is limited to 50 ms, and there is also rat
 
 ## Command-line Interface
 
-Similar to tools like python3, it can be used to run a file or enter an interactive interpreter.
+Similar to tools like `python3`, it can be used to run a file or enter an interactive interpreter.
 
 ### First method: download releases on GitHub
 
-Go to [GitHub](https://github.com/felys-lang/felys-cli) and pick the verison for your OS.
+Go to [GitHub](https://github.com/felys-lang/felys-cli/releases) and pick the verison for your OS.
 
 ### Second method: compile it on your own
 

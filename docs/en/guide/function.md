@@ -4,13 +4,15 @@ In Felys, functions are also inherited from `Object`, so you can even pass funct
 
 ## Define
 
-The following two methods are completely equivalent, with the latter being just syntactic sugar.
+Functions can be defined like this:
 
 ```
 |n| {
     return n+1;
-}
+};
 ```
+
+Or simply like this (syntactic sugar):
 
 ```
 |n| n+1;

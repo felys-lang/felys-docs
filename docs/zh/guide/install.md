@@ -16,7 +16,7 @@ Felys 提供多种安装方式，也可以用支持在线运行代码的网站�
 
 ### 方法一：下载预编译文件
 
-前往 [GitHub](https://github.com/felys-lang/felys-cli) 选择适合的版本下载。
+前往 [GitHub](https://github.com/felys-lang/felys-cli/releases) 选择适合的版本下载。
 
 ### 方法二：自行编译
 

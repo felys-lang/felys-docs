@@ -3,7 +3,8 @@
 Felys documentation and guide built with VitePress.
 
 ```sh
-npx vitepress dev docs
+npm install
+npm run docs:dev
 ```
 
 ## License
