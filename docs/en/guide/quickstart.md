@@ -1,6 +1,6 @@
 # Quickstart
 
-Not installed? Check out [install](install) steps or use the [playground](https://exec.felys.dev)。
+Not installed? Check out [install](install) steps or use the [playground](https://exec.felys.dev).
 
 ## First program
 
@@ -13,7 +13,7 @@ print(video);
 
 ## Upgrade this program
 
-Use a function to do these;
+Use a function to do these.
 
 ```
 ilove = |episode| {
