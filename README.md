@@ -9,7 +9,7 @@ npm run docs:dev
 
 ## License
 
-Distributed under the terms of the [MIT License](https://github.com/felys-lang/felys-docs/blob/main/LICENSE).
+Distributed under the terms of the [MIT License](LICENSE).
 
 ## Copyright
 

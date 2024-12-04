@@ -1,14 +1,14 @@
 # Quickstart
 
-Not installed? Check out [install](install) steps or use the [playground](https://exec.felys.dev).
+Use the [playground](https://exec.felys.dev) to test your code.
 
 ## First program
 
-Assign a value to the variable, and print it out.
+Assign a value to the variable, and return it.
 
 ```
 video = "Because of You";
-print(video);
+return video;
 ```
 
 ## Upgrade this program
@@ -17,16 +17,12 @@ Use a function to do these.
 
 ```
 ilove = |episode| {
-    print("Favourite episode is:", episode);
+    return "Favourite episode is: " + episode;
 };
 
 video = "Because of You";
-ilove(video);
+return ilove(video);
 ```
-
-::: tip
-`print()` does not have restrictions on numbers of parameters. All of them will be concatenated by space and printed out.
-:::
 
 ## Upgrade again
 
@@ -35,15 +31,16 @@ Say important thrice.
 ```
 ilove = |episode| {
     counter = 0;
-    while counter < 3 {
-        print("Favourite episode is:", episode);
+    message = "Favourite episode is: ";
+    while counter < 2 {
+        message += episode + ", ";
         counter += 1;
     }
+    message + episode + "!"
 };
 
-
 episode = "Because of You";
-ilove(episode);
+return ilove(episode);
 ```
 
 ## Ultimate Version
@@ -51,30 +48,24 @@ ilove(episode);
 Short circuit this function if favourite episode is `none`.
 
 ```
-print("Language for", __elysia__);
-
 ilove = |episode| {
-    if episode == none {
-        print("I'm not a weeb");
-        return none;
+    if episode == "" {
+        return "I love nothing...";
     }
 
     counter = 0;
-    while counter < 3 {
-        print("Favourite episode is:", episode);
+    message = "Favourite episode is: ";
+    while counter < 2 {
+        message += episode + ", ";
         counter += 1;
     }
+    message + episode + "!"
 };
 
-
 episode = "Because of You";
-ilove(episode);
+return ilove(episode);
 ```
 
-::: tip
-Function closure is not supported, meaning that a function only have the access to parameters, constants, and itself. (syntactic sugar)
-:::
+### Tricks
 
-### Cool Tricks
-
-Try `print(ilove);`, it will print out a condensed abstract syntax tree of the function.
+Try `return ilove;`, it will return an abstract syntax tree of the function.

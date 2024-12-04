@@ -28,37 +28,15 @@ export default defineConfig({
         nav: [
           {
             text: "Guide",
-            link: "/guide/install",
+            link: "/guide/quickstart",
             activeMatch: "/guide/",
-          },
-          {
-            text: "API",
-            link: "/api/overview",
-            activeMatch: "/api/",
           },
         ],
         sidebar: {
           "/guide": [
             {
               text: "Guide",
-              items: [
-                { text: "Install", link: "/guide/install" },
-                { text: "Quickstart", link: "/guide/quickstart" },
-                { text: "Bilingual", link: "/guide/bilingual" },
-                { text: "Function", link: "/guide/function" },
-              ],
-            },
-          ],
-          "/api/": [
-            {
-              text: "API",
-              items: [
-                { text: "Overview", link: "/api/overview" },
-                { text: "Object", link: "/api/object" },
-                { text: "Injection", link: "/api/injection" },
-                { text: "Worker", link: "/api/worker" },
-                { text: "Example", link: "/api/example" },
-              ],
+              items: [{ text: "Quickstart", link: "/guide/quickstart" }],
             },
           ],
         },
@@ -84,37 +62,15 @@ export default defineConfig({
         nav: [
           {
             text: "指南",
-            link: "/zh/guide/install",
+            link: "/zh/guide/quickstart",
             activeMatch: "/zh/guide/",
-          },
-          {
-            text: "接口",
-            link: "/zh/api/overview",
-            activeMatch: "/zh/api/",
           },
         ],
         sidebar: {
           "/zh/guide": [
             {
               text: "语法",
-              items: [
-                { text: "安装", link: "/zh/guide/install" },
-                { text: "快速入门", link: "/zh/guide/quickstart" },
-                { text: "双语对照", link: "/zh/guide/bilingual" },
-                { text: "函数特性", link: "/zh/guide/function" },
-              ],
-            },
-          ],
-          "/zh/api/": [
-            {
-              text: "接口",
-              items: [
-                { text: "概览", link: "/zh/api/overview" },
-                { text: "数据类型", link: "/zh/api/object" },
-                { text: "常量注入", link: "/zh/api/injection" },
-                { text: "构建运行", link: "/zh/api/worker" },
-                { text: "完整示例", link: "/zh/api/example" },
-              ],
+              items: [{ text: "快速入门", link: "/zh/guide/quickstart" }],
             },
           ],
         },

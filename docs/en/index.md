@@ -12,27 +12,24 @@ hero:
       text: Quickstart
       link: /guide/quickstart
     - theme: alt
-      text: API
-      link: /api/overview
-    - theme: alt
       text: Playground
       link: https://exec.felys.dev
 
 features:
   - icon:
-      src: /translate.svg
-    title: Bilingual
-    details: Allow coding in pure English or pure Chinese without switching inputs, i.e. compitable with equivalent symbols.
-  - icon:
       src: /braces.svg
-    title: Simple Syntax
-    details: Combined basic syntax of Python and Rust, allowing programmers to pick up Felys in 10 minutes.
+    title: Modern
+    details: Expression syntax is similar to Rust, where most traditionally defined statements have return values.
+  - icon:
+      src: /hammer.svg
+    title: Independent
+    details: Felys does not rely on any external dependency, meaning every component is fully understood and controlled.
   - icon:
       src: /rocket.svg
-    title: Light Weighted
-    details: Built with Rust with the simpliest design, so it is fast even if Felys uses dynamic typing.
+    title: Light
+    details: The project structure is designed to be modular and as simple as possible, so that the overhead is generally low.
   - icon:
       src: /expand.svg
     title: Extendable
-    details: Inject Rust functions into Felys, and build specialized distribution with Rust ecosystem.
+    details: The parser is powerful enough for adding new features, while maintaining an acceptable performance.
 ---

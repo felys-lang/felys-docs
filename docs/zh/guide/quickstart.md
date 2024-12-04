@@ -1,14 +1,14 @@
 # 快速入门
 
-还未安装？查看[安装](install)方法或者[在线运行](https://exec.felys.dev)。
+可以用[在线运行网站](https://exec.felys.dev)来测试代码。
 
 ## 第一个程序
 
 给一个变量赋值，并且打印出来：
 
 ```
-短片名 = “因你而在的故事”；
-打印（短片名）；
+video = "Because of You";
+return video;
 ```
 
 ## 升级这个程序
@@ -16,33 +16,31 @@
 构建一个函数来封装一些操作：
 
 ```
-喜欢 = ｜集数｜「
-    打印（“最喜欢的一集：”，集数）；
-」；
+ilove = |episode| {
+    return "Favourite episode is: " + episode;
+};
 
-短片名 = “因你而在的故事”；
-喜欢（短片名）；
+video = "Because of You";
+return ilove(video);
 ```
-
-::: tip
-`打印（）`这个函数没有参数数量限制，所有传入的值都会被空格拼接然后打印出来。
-:::
 
 ## 再次升级
 
 重要的事情说三遍：
 
 ```
-超喜欢 = ｜集数｜「
-    计数器 = 0；
-    当 计数器 小于 3「
-        打印（“最喜欢的一集：”，集数）；
-        计数器 += 1；
-    」
-」；
+ilove = |episode| {
+    counter = 0;
+    message = "Favourite episode is: ";
+    while counter < 2 {
+        message += episode + ", ";
+        counter += 1;
+    }
+    message + episode + "!"
+};
 
-短片名 = “因你而在的故事”；
-超喜欢（短片名）；
+episode = "Because of You";
+return ilove(episode);
 ```
 
 ## 终极版
@@ -50,27 +48,24 @@
 如果没有最喜欢的一集直接短路这个函数：
 
 ```
-超喜欢 = ｜集数｜「
-    如果 集数 等于 无「
-        打印（“我不是二次元”）；
-        返回 无；
-    」
+ilove = |episode| {
+    if episode == "" {
+        return "I love nothing...";
+    }
 
-    计数器 = 0；
-    当 计数器 小于 3「
-        打印（“最喜欢的一集：”，集数）；
-        计数器 += 1；
-    」
-」；
+    counter = 0;
+    message = "Favourite episode is: ";
+    while counter < 2 {
+        message += episode + ", ";
+        counter += 1;
+    }
+    message + episode + "!"
+};
 
-短片名 = “因你而在的故事”；
-超喜欢（短片名）；
+episode = "Because of You";
+return ilove(episode);
 ```
-
-::: tip
-函数并不支持闭包，所以函数能够访问的只有传入的变量、常量、和函数自身（语法糖）。
-:::
 
 ### 小知识
 
-尝试`打印（超喜欢）；`可以直接输出这个函数的极简抽象语法树。
+尝试`return (ilove);`可以直接返回这个函数的极简抽象语法树。
