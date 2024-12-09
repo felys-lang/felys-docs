@@ -4,7 +4,7 @@ layout: home
 hero:
   name: "FELYS"
   text: "至爱莉希雅的语言"
-  tagline: 一款函数式解释型编程语言
+  tagline: 一款优雅的解释型编程语言
   image:
     src: /elysia.png
   actions:

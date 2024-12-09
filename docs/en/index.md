@@ -4,7 +4,7 @@ layout: home
 hero:
   name: "Felys"
   text: "Language for Elysia"
-  tagline: A Functional Programming Language
+  tagline: An Elegant Programming Language
   image:
     src: /elysia.png
   actions:
