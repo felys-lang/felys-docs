@@ -31,12 +31,23 @@ export default defineConfig({
             link: "/guide/quickstart",
             activeMatch: "/guide/",
           },
+          {
+            text: "Development",
+            link: "/dev/prelude",
+            activeMatch: "/guide/",
+          },
         ],
         sidebar: {
           "/guide": [
             {
               text: "Guide",
               items: [{ text: "Quickstart", link: "/guide/quickstart" }],
+            },
+          ],
+          "/dev": [
+            {
+              text: "Development",
+              items: [{ text: "Prelude", link: "/dev/prelude" }],
             },
           ],
         },
@@ -47,7 +58,7 @@ export default defineConfig({
     },
 
     zh: {
-      title: "FELYS文档",
+      title: "Felys文档",
       label: "中文",
       lang: "zh",
       description: "至爱莉希雅的语言",
@@ -61,16 +72,31 @@ export default defineConfig({
         },
         nav: [
           {
-            text: "指南",
+            text: "教学",
             link: "/zh/guide/quickstart",
             activeMatch: "/zh/guide/",
+          },
+          {
+            text: "开发",
+            link: "/zh/dev/prelude",
+            activeMatch: "/zh/dev/",
           },
         ],
         sidebar: {
           "/zh/guide": [
             {
-              text: "语法",
+              text: "教学",
               items: [{ text: "快速入门", link: "/zh/guide/quickstart" }],
+            },
+          ],
+          "/zh/dev": [
+            {
+              text: "开发",
+              items: [
+                { text: "前言", link: "/zh/dev/prelude" },
+                { text: "基础知识", link: "/zh/dev/basis" },
+                { text: "语法解析", link: "/zh/dev/parser" },
+              ],
             },
           ],
         },

@@ -19,11 +19,11 @@ features:
   - icon:
       src: /braces.svg
     title: 现代
-    details: 表达式语法类似于Rust，即大多传统意义上的语句都会有返回值，再加上较严格的设计逻辑，使得代码更加可读且优雅。
+    details: 表达式语法偏函数范式，类似于 Rust，大多传统意义上的语句都会有返回值，再加上较严格的设计逻辑，使得代码更加可读且优雅。
   - icon:
       src: /hammer.svg
     title: 自主
-    details: Felys除了Rust标准库以外，没有其他依赖，所有和编译相关的算法技术都属于自己完全理解后的实现，可以保证稳定性。
+    details: Felys 除了 Rust 标准库以外，没有其他外部依赖，所有和编译相关的算法技术都属于自己完全理解后的实现，可以保证稳定性。
   - icon:
       src: /rocket.svg
     title: 轻量

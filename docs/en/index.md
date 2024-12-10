@@ -2,7 +2,7 @@
 layout: home
 
 hero:
-  name: "Felys"
+  name: "FELYS"
   text: "Language for Elysia"
   tagline: An Elegant Programming Language
   image:
@@ -26,7 +26,7 @@ features:
     details: Felys does not rely on any external dependency, meaning every component is fully understood and controlled.
   - icon:
       src: /rocket.svg
-    title: Light
+    title: Lightweight
     details: The project structure is designed to be modular and as simple as possible, so that the overhead is generally low.
   - icon:
       src: /expand.svg
