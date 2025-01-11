@@ -10,9 +10,9 @@
 
 编程语言的语法能够通过一个非终结符的集合来描述。例如，最基础的加法运算可以相对不那么严谨地描述为规则 `E -> E + T | T` 以及 `T -> NUMBER`。更为学术性的解释可自行去参考上下文无关文法（CFG）和巴科斯范式（BNF），它们都是业界常用的用于语法描述的方式，从本质上来说，这些描述方式都是基于一系列递归函数构建的，此处就不过多深入阐述了。在具体的算法实现方面，存在多种选择，例如基于分析表的、自上而下的 LL 算法以及自下而上的 LR 算法，还有它们的各类变体。LL 算法实现起来相对简单，但有着较大的局限性；LR 算法则与之相反，功能更为强大但实现难度更高。在实际应用落地层面，有像 YACC/Bison 以及较为现代的 ANTLR4 这类工具，ANTLR4 支持的编程语言种类较多，有兴趣的话可以自行深入学习，它们都属于非常成熟的技术了。
 
-即便不采用这些成熟的技术，出于对高度定制化以及性能优化方面的考量，也可以选择手写一个自上而下递归下降（Top-Down Recursive Descent，简称 TDRD）解析器。正如前文所述，语法从本质上看就是一堆递归函数，所以完全能够通过手写的方式来实现，例如 Rust 的解析器就是纯手写完成的，Felys 在早期也是如此。只不过手写这种解析器对于项目的结构设计要求颇高，很容易出现结构设计不合理的情况。
+即便不采用这些成熟的技术，出于对高度定制化以及性能优化方面的考量，也可以选择手写一个递归下降解析器。正如前文所述，语法从本质上看就是一堆递归函数，所以完全能够通过手写的方式来实现，例如 Rust 的解析器就是纯手写完成的，Felys 在早期也是如此。只不过手写这种解析器对于项目的结构设计要求颇高，很容易出现结构设计不合理的情况。
 
-另外，还有一种相对较新的解析器思路，即解析表达式语法（PEG）及其变体 Packrat 解析器。这种解析器更像是一种功能强大的正则解析器，与传统解析器有所不同的是，Packrat 解析器支持无限回溯，并且它通过缓存机制，采用以空间换时间的策略来避免重复解析，最终能够达到线性时间复杂度。其实际落地的代码与手写的 TDRD 解析器比较相似，但代码结构会更加清晰美观。不过需要注意的是，PEG 的语法注解方式和 CFG、BNF 是不一样的，主要差异在于 PEG 中规则是有顺序要求的，而在 CFG 和 BNF 里规则顺序通常是无关紧要的。比如在 PEG 语法中，`E -> E + T \ T` 和 `E -> T \ E + T`，是不等价的，但在 CFG 里这两个表达式则是等价的。不过这种解析器在实际应用中不算广泛，可能是由于其性能表现欠佳，尤其是在内存占用方面，据了解，目前只有 Python 和 Rust 的宏定义中有使用到它。更多的细节内容可以参考[原论文](https://pdos.csail.mit.edu/~baford/packrat/thesis/thesis.pdf)。
+另外，还有一种相对较新的解析器思路，即解析表达式语法（PEG）及其变体 Packrat 解析器。这种解析器更像是一种功能强大的正则解析器，与传统解析器有所不同的是，Packrat 解析器支持无限回溯，并且它通过缓存机制，采用以空间换时间的策略来避免重复解析，最终能够达到线性时间复杂度。其实际落地的代码与手写的递归下降解析器比较相似，但代码结构会更加清晰美观。不过需要注意的是，PEG 的语法注解方式和 CFG、BNF 是不一样的，主要差异在于 PEG 中规则是有顺序要求的，而在 CFG 和 BNF 里规则顺序通常是无关紧要的。比如在 PEG 语法中，`E -> E + T \ T` 和 `E -> T \ E + T`，是不等价的，但在 CFG 里这两个表达式则是等价的。不过这种解析器在实际应用中不算广泛，可能是由于其性能表现欠佳，尤其是在内存占用方面，据了解，目前只有 Python 和 Rust 的宏定义中有使用到它。更多的细节内容可以参考[原论文](https://pdos.csail.mit.edu/~baford/packrat/thesis/thesis.pdf)。
 
 ::: info
 PEG 语法中使用 `\` 而不是 `|` 来强调顺序的重要性，以此与传统语法描述方式形成区别。
@@ -36,22 +36,20 @@ program -> stmt* eof
 
 ```
 stmt -> \
-    \ ctrl ";"
-    \ ctrl
-    \ expr ";"
+    \ expr ';'
     \ expr
-    \ ";"
+    \ ';'
 
-block -> "{" stmt* "}"
+block -> '{' stmt* '}'
 ```
 
 ### 模版语法
 
 ```
 pat -> \
-    \ "_"
+    \ '_'
     \ ident
-    \ "(" pat ("," pat)+ ")"
+    \ '(' ','.pat+ ')'
     \ lit
 
 ident -> (alphabetic \ "_") (alphanumeric \ "_")*
@@ -60,10 +58,29 @@ ident -> (alphabetic \ "_") (alphanumeric \ "_")*
 ### 表达式语法
 
 ```
-expr -> tuple
+expr -> \
+    \ assign
+    \ tuple
+    \ block
+    \ "break" expr?
+    \ "continue"
+    \ "for" pat "in" expr block
+    \ "match" expr '{' ','.(pat '=>' expr)+ '}'
+    \ "if" block ("else" expr)?
+    \ "loop" block
+    \ "return" expr?
+    \ "while" expr block
+
+assign -> \
+    \ pat '=' expr
+    \ pat '+=' expr
+    \ pat '-=' expr
+    \ pat '*=' expr
+    \ pat '/=' expr
+    \ pat '%=' expr
 
 tuple -> \
-    \ "(" expr ("," expr)+ ")"
+    \ '(' ','.expr+ ')'
     \ disjunction
 
 disjunction -> \
@@ -79,63 +96,38 @@ inversion -> \
     \ equality
 
 equality -> \
-    \ equality "==" comparison
-    \ equality "!=" comparison
+    \ equality '==' comparison
+    \ equality '!=' comparison
     \ comparison
 
 comparison -> \
-    \ comparison ">" term
-    \ comparison ">=" term
-    \ comparison "<" term
-    \ comparison "<=" term
+    \ comparison '>' term
+    \ comparison '>=' term
+    \ comparison '<' term
+    \ comparison '<=' term
     \ term
 
 term -> \
-    \ term "+" factor
-    \ term "-" factor
+    \ term '+' factor
+    \ term '-' factor
     \ factor
 
 factor -> \
-    \ factor "*" unary
-    \ factor "/" unary
-    \ factor "%" unary
+    \ factor '*' unary
+    \ factor '/' unary
+    \ factor '%' unary
     \ unary
 
 unary -> \
-    \ "+" unary
-    \ "-" unary
+    \ '+' unary
+    \ '-' unary
     \ primary
 
 primary -> \
     \ lit
     \ ident
-    \ "(" expr ")"
-    \ "|" (ident ("," ident)*)? "|" expr
-    \ ctrl
-```
-
-### 控制流语法
-
-```
-ctrl -> \
-    \ assign
-    \ block
-    \ "break" expr?
-    \ "continue"
-    \ "for" pat "in" expr block
-    \ "match" expr "{" pat "=>" expr ("," pat "=>" expr)* "}"
-    \ "if" block ("else" expr)?
-    \ "loop" block
-    \ "return" expr?
-    \ "while" expr block
-
-assign -> \
-    \ pat "=" expr
-    \ pat "+=" expr
-    \ pat "-=" expr
-    \ pat "*=" expr
-    \ pat "/=" expr
-    \ pat "%=" expr
+    \ '(' expr ')'
+    \ '|' ','.ident* '|' expr
 ```
 
 ### 字面量语法
@@ -148,19 +140,27 @@ lit -> \
     \ bool
 
 float -> \
-    \ "0" ~ "." digit+
-    \ digit+ "." digit+
+    \ '0' '.' digit+
+    \ digit+ '.' digit+
 
 int -> \
-    \ "0x" ~ hex+
-    \ "0o" ~ oct+
-    \ "0b" ~ bin+
-    \ "0" ~ !digit
+    \ '0x' hex+
+    \ '0o' oct+
+    \ '0b' bin+
+    \ '0' !digit
     \ digit+
 
 bool -> \
     \ "true"
     \ "false"
 
-str -> "\"" (!"\"" char)* "\""
+str -> '"' (!'"' char)* '"'
 ```
+
+### 经验分享
+
+编程语言本身实则也是一种产品，用户体验至关重要。正因如此，绝大多数流行的编程语言都会引入大量的语法糖并允许存在一些副作用，借此简化重复性工作，提升代码可读性。不过，这往往会破坏语言在学术方面的严谨性，关键就在于要在语言的易用性与学术性之间找到平衡点。像 Python 就是极致易用的代表，而 Haskell 则有着绝对的学术严谨性，所以 Haskell 在学术研究中被大量运用，但在业界的使用量并不算多。
+
+在设计编程语言时，开发者很容易不自觉地朝着函数范式靠拢，因为从代码实现角度来看，这样做似乎很合理，可却会牺牲诸多便利性。例如，循环语句本质上是依靠跳行来实现的，这就会产生副作用，而函数式语言只能通过递归的方式来实现循环效果；再比如最简单的变量赋值，由于需要在后端存储变量内容，所以同样会产生副作用，而函数式语言中因不允许重复赋值，才能实现无需后端存储的效果；还有所有语言都具备的打印函数也是如此，在函数范式里，和系统交互的接口必须手动传入才行。
+
+就个人观点而言，Go 和 Rust 等语言在权衡方面做得比较出色，整体风格偏向函数式，同时也提供了不少语法来实现更高层次的抽象，无需像 C 语言那样把各类信息全都塞在函数名当中，进而避免了代码可读性欠佳的问题。
