@@ -96,6 +96,7 @@ export default defineConfig({
                 { text: "前言", link: "/zh/dev/prelude" },
                 { text: "基础知识", link: "/zh/dev/basis" },
                 { text: "语法解析", link: "/zh/dev/parser" },
+                { text: "运行时", link: "/zh/dev/runtime" },
               ],
             },
           ],
