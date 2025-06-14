@@ -5,7 +5,7 @@
 - [Design Principle](principle/README.md)
   - [Programming Language](principle/language.md)
   - [Technical Decisions](principle/decisions.md)
-  - [Grammar](principle/grammar.md)
+  - [Grammar File](principle/grammar.md)
 - [Parser Generator](rspegen/README.md)
   - [PEG/Packrat](rspegen/peg.md)
   - [Whitespace Handling](rspegen/whitespace.md)
