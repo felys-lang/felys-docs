@@ -2,11 +2,6 @@
 
 Felys documentation and guide built with VitePress.
 
-```sh
-npm install
-npm run docs:dev
-```
-
 ## License
 
 Distributed under the terms of the [MIT License](LICENSE).
