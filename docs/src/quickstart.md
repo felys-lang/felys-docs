@@ -1,6 +1,6 @@
 # Quickstart
 
-The [playground](https://exec.felys.dev) also has some sample program.
+The [playground](https://exec.felys.dev) also has some sample programs.
 
 ## Literal
 
