@@ -1,6 +1,6 @@
 # Felys Docs
 
-Felys documentation and guide built with VitePress.
+Felys documentation and guide built with mdBook.
 
 ## License
 

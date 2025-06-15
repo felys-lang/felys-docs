@@ -1,6 +1,6 @@
 # Everything About Felys
 
-Felys is a dynamically strongly typed scripting language with a syntax similar to Rust. It provides minimal features to support data grouping with dynamic length, such as tuples and lists. The entire project is intended to be a toy language for demonstration purposes only. I have never considered turning this into a real product; instead, it serves as a tribute to [Elysia](https://www.youtube.com/watch?v=RUe2BDz6RO4) from Honkai Impact 3rd.
+Felys is a dynamically strongly typed scripting language with a syntax similar to Rust. It provides minimal features to support data grouping with dynamic length, i.e., tuples and lists. The entire project is intended to be a toy language for demonstration purposes only. I have never considered turning this into a real product; instead, it serves as a tribute to [Elysia](https://www.youtube.com/watch?v=RUe2BDz6RO4) from Honkai Impact 3rd.
 
 Feel to try Felys using the online [playground](https://exec.felys.dev).
 

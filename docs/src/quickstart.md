@@ -4,7 +4,7 @@ The [playground](https://exec.felys.dev) also has some sample programs.
 
 ## Literal
 
-Felys has builtin support for float, integer, string, tuple, and list.
+Felys has built-in support for float, integer, string, tuple, and list. Their underlying implementation uses `f64`, `isize`, `String`, `Vec`, and `Vec` in Rust standard library.
 
 ```
 int = 42;
@@ -77,7 +77,7 @@ for x in [1, 2, 3] {
 
 ### Block
 
-The last statement of a block is also its return value. All statements before it must not have a return value. You need to use `;` to make them `void`, and the best practice is to always add the `;` except anything ends with `}` and this block also returns `void`.
+The last statement of a block is also the return value of the block. All statements before it must not have a return value. You can to use `;` to make them `void`, and the best practice is to always add the `;` except for expression ends with `}` and returns `void`.
 
 ```
 one = { 1 };
@@ -85,7 +85,7 @@ one = { 1 };
 
 ## Statement
 
-If semicolon shows up after an expression, this expression will have `void` return value, i.e. no return value. Most expressions have a return value except for assignment, `for` loop, and `while` loop, `break`, `continue`, and `return`.
+If semicolon shows up after an expression, this expression will have `void` return value, i.e. no return value. Most expressions have a return value except for assignment, `for` loop, `while` loop, `break`, `continue`, and `return`.
 
 ```
 void = { 1; }
@@ -94,8 +94,10 @@ one = 1;
 
 ## Main
 
-A Felys program is similar to a block, where all statements must not have a return value, including the last one. It has a default return value `void`, but you can return anything using the `return` keyword. This is also the only interface to output something.
+All statements in a Felys program must not have return values. IThe program has a default return value `void`, but you can return anything using the `return` keyword. This would also early terminates the program, and is also the only interface to output something.
 
 ```
 return __author__;
 ```
+
+The program usually spawn another thread to timeout the runtime, becuase it is designed such that it can run safely on the website. The callstack is also limited to protect the server. Felys is slow because the backend just walks through the syntax tree and copy-pastes everything, which leads to lots of overhead.
