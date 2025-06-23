@@ -28,6 +28,6 @@ Static typing means that a variable is bound to a specific data type at compile 
 
 As interpreted languages became more popular, dynamic typing emerged as a more flexible alternative as the runtime can handle types dynamically. One major benefit of dynamic typing is its flexibility and speed during development, especially in scripting and prototyping. But for large projects, developers often reintroduce type systems, e.g., Python or TypeScript.
 
-# Strong Typing vs Weak Typing
+## Strong Typing vs Weak Typing
 
 The key difference between strong and weak typing is type coercion. Some languages, such as JavaScript and C/C++, automatically convert data types when performing operations. For example, in C, the expression `1 + '1'` is valid because the character `'1'` is implicitly converted to its corresponding ASCII value. It's important not to confuse weak typing with operator overloading, as they are entirely different mechanisms. Weak typing can sometimes lead to unexpected behavior, so modern programmers tend to avoid relying on implicit conversions and instead write them out explicitly to improve code clarity and maintainability.
